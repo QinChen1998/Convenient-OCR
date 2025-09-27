@@ -34,7 +34,7 @@
 # Windows: 从 https://github.com/tesseract-ocr/tesseract 下载
 ```
 
-### 3. 安装ImageMagick (PDF支持)
+### 3. Poppler (PDF支持)
 ```bash
 # Windows: 从 https://github.com/oschwartz10612/poppler-windows 下载
 ```
