@@ -1,0 +1,1119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>🚀 智能OCR文字识别工具 - 现代版</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>:/icons/app_icon.png</normaloff>:/icons/app_icon.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string>QWidget {
+        background-color: #f8fafc;
+        color: #1f2937;
+        font-family: 'Microsoft YaHei', 'Segoe UI', sans-serif;
+    }
+
+    /* 主容器样式 */
+    #centralwidget {
+        background: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 0,
+            stop: 0 #f8fafc, stop: 1 #f1f5f9);
+    }</string>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_main">
+    <property name="spacing">
+     <number>16</number>
+    </property>
+    <property name="leftMargin">
+     <number>16</number>
+    </property>
+    <property name="topMargin">
+     <number>16</number>
+    </property>
+    <property name="rightMargin">
+     <number>16</number>
+    </property>
+    <property name="bottomMargin">
+     <number>16</number>
+    </property>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_left">
+      <item>
+       <widget class="QGroupBox" name="fileUploadGroup">
+        <property name="font">
+         <font>
+          <family>Microsoft YaHei</family>
+          <pointsize>-1</pointsize>
+          <fontweight>Medium</fontweight>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string>QGroupBox {
+             background-color: white;
+             border: 1px solid #e2e8f0;
+             border-radius: 8px;
+             font-weight: 500;
+             font-size: 12px;
+             color: #374151;
+             margin-top: 8px;
+             padding-top: 12px;
+         }
+
+         QGroupBox::title {
+             subcontrol-origin: margin;
+             left: 12px;
+             padding: 0 8px 0 8px;
+             background-color: white;
+         }</string>
+        </property>
+        <property name="title">
+         <string>文件上传</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_upload">
+         <item>
+          <widget class="QPushButton" name="btnSelectFile">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Microsoft YaHei</family>
+             <pointsize>11</pointsize>
+             <fontweight>Medium</fontweight>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string>QPushButton {
+                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                    stop: 0 #3b82f6, stop: 1 #2563eb);
+                color: white;
+                border: none;
+                border-radius: 6px;
+                font-weight: 500;
+                padding: 8px 16px;
+            }
+
+            QPushButton:hover {
+                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                    stop: 0 #60a5fa, stop: 1 #3b82f6);
+            }
+
+            QPushButton:pressed {
+                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                    stop: 0 #1d4ed8, stop: 1 #1e40af);
+            }</string>
+           </property>
+           <property name="text">
+            <string>选择文件</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnScreenCapture">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Microsoft YaHei</family>
+             <pointsize>11</pointsize>
+             <fontweight>Medium</fontweight>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string>QPushButton {
+                background-color: white;
+                color: #374151;
+                border: 2px solid #e2e8f0;
+                border-radius: 6px;
+                font-weight: 500;
+                padding: 8px 16px;
+            }
+
+            QPushButton:hover {
+                background-color: #f8fafc;
+                border-color: #cbd5e1;
+                color: #1f2937;
+            }
+
+            QPushButton:pressed {
+                background-color: #e2e8f0;
+                border-color: #94a3b8;
+            }</string>
+           </property>
+           <property name="text">
+            <string>屏幕截图</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="chkHideWindow">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>36</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Microsoft YaHei</family>
+             <pointsize>-1</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string>QCheckBox {
+                color: #6b7280;
+                font-size: 10px;
+                padding-left: 12px;
+                padding-top: 4px;
+            }
+
+            QCheckBox::indicator {
+                width: 16px;
+                height: 16px;
+                border-radius: 3px;
+                border: 2px solid #d1d5db;
+                background-color: white;
+            }
+
+            QCheckBox::indicator:checked {
+                background-color: #3b82f6;
+                border-color: #3b82f6;
+            }
+
+            QCheckBox::indicator:hover {
+                border-color: #9ca3af;
+            }</string>
+           </property>
+           <property name="text">
+            <string>隐藏窗口</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="lblSelectedFile">
+           <property name="styleSheet">
+            <string>QLabel {
+                color: #9ca3af;
+                font-size: 10px;
+                font-style: italic;
+                padding: 8px 12px;
+                background-color: #f9fafb;
+                border: 1px solid #e5e7eb;
+                border-radius: 4px;
+                margin: 4px 0px;
+            }</string>
+           </property>
+           <property name="text">
+            <string>未选择文件</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignCenter</set>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="ocrSettingsGroup">
+        <property name="font">
+         <font>
+          <family>Microsoft YaHei</family>
+          <pointsize>-1</pointsize>
+          <fontweight>Medium</fontweight>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string>QGroupBox {
+             background-color: white;
+             border: 1px solid #e2e8f0;
+             border-radius: 8px;
+             font-weight: 500;
+             font-size: 12px;
+             color: #374151;
+             margin-top: 8px;
+             padding-top: 12px;
+         }
+
+         QGroupBox::title {
+             subcontrol-origin: margin;
+             left: 12px;
+             padding: 0 8px 0 8px;
+             background-color: white;
+         }</string>
+        </property>
+        <property name="title">
+         <string>识别设置</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_settings">
+         <item>
+          <layout class="QFormLayout" name="formLayout_settings">
+           <item row="0" column="0">
+            <widget class="QLabel" name="lblLanguage">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>32</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>识别语言:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QComboBox" name="comboLanguage">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>36</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string>QComboBox {
+                  background-color: white;
+                  border: 1px solid #d1d5db;
+                  border-radius: 6px;
+                  padding: 6px 12px;
+                  font-size: 11px;
+                  color: #374151;
+              }
+
+              QComboBox:hover {
+                  border-color: #9ca3af;
+              }
+
+              QComboBox:focus {
+                  border-color: #3b82f6;
+              }
+
+              QComboBox::drop-down {
+                  border: none;
+                  width: 20px;
+              }
+
+              QComboBox::down-arrow {
+                  width: 12px;
+                  height: 12px;
+              }</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>中英混合</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>简体中文</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>简体中文(竖排)</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>繁体中文</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>繁体中文(竖排)</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>英语</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="lblEngine">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>32</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>识别引擎:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QComboBox" name="comboEngine">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>36</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string>QComboBox {
+                  background-color: white;
+                  border: 1px solid #d1d5db;
+                  border-radius: 6px;
+                  padding: 6px 12px;
+                  font-size: 11px;
+                  color: #374151;
+              }
+
+              QComboBox:hover {
+                  border-color: #9ca3af;
+              }
+
+              QComboBox:focus {
+                  border-color: #3b82f6;
+              }
+
+              QComboBox::drop-down {
+                  border: none;
+                  width: 20px;
+              }
+
+              QComboBox::down-arrow {
+                  width: 12px;
+                  height: 12px;
+              }</string>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>16</width>
+               <height>16</height>
+              </size>
+             </property>
+             <item>
+              <property name="text">
+               <string>Tesseract OCR</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnStartOCR">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>44</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Microsoft YaHei</family>
+             <pointsize>-1</pointsize>
+             <fontweight>DemiBold</fontweight>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string>QPushButton {
+                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                    stop: 0 #10b981, stop: 1 #059669);
+                color: white;
+                border: none;
+                border-radius: 8px;
+                font-weight: 600;
+                font-size: 12px;
+                padding: 10px 20px;
+            }
+
+            QPushButton:hover {
+                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                    stop: 0 #34d399, stop: 1 #10b981);
+            }
+
+            QPushButton:pressed {
+                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                    stop: 0 #047857, stop: 1 #064e3b);
+            }
+
+            QPushButton:disabled {
+                background-color: #d1d5db;
+                color: #9ca3af;
+            }</string>
+           </property>
+           <property name="text">
+            <string>🚀 开始识别</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="progressGroup">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>120</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>120</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Microsoft YaHei</family>
+          <pointsize>-1</pointsize>
+          <fontweight>Medium</fontweight>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string>QGroupBox {
+             background-color: white;
+             border: 1px solid #e2e8f0;
+             border-radius: 8px;
+             font-weight: 500;
+             font-size: 12px;
+             color: #374151;
+             margin-top: 8px;
+             padding-top: 12px;
+         }
+
+         QGroupBox::title {
+             subcontrol-origin: margin;
+             left: 12px;
+             padding: 0 8px 0 8px;
+             background-color: white;
+         }</string>
+        </property>
+        <property name="title">
+         <string>处理进度</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_progress">
+         <item>
+          <widget class="QProgressBar" name="progressBar">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>8</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>8</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string>QProgressBar {
+                background-color: #e5e7eb;
+                border: none;
+                border-radius: 4px;
+                height: 8px;
+            }
+
+            QProgressBar::chunk {
+                background: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 0,
+                    stop: 0 #3b82f6, stop: 1 #1d4ed8);
+                border-radius: 4px;
+            }</string>
+           </property>
+           <property name="value">
+            <number>0</number>
+           </property>
+           <property name="textVisible">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="lblProgressText">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Microsoft YaHei</family>
+             <pointsize>-1</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string>QLabel {
+                color: #6b7280;
+                font-size: 10px;
+                padding: 8px;
+            }</string>
+           </property>
+           <property name="text">
+            <string>等待开始...</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignCenter</set>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer_left">
+        <property name="orientation">
+         <enum>Qt::Orientation::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_right">
+      <item>
+       <widget class="QTabWidget" name="tabWidget">
+        <property name="styleSheet">
+         <string>QTabWidget {
+             background-color: white;
+             border: 1px solid #e2e8f0;
+             border-radius: 8px;
+         }
+
+         QTabWidget::pane {
+             border: none;
+             background-color: white;
+             border-radius: 8px;
+         }
+
+         QTabBar::tab {
+             background-color: #f8fafc;
+             color: #6b7280;
+             padding: 8px 16px;
+             margin-right: 2px;
+             border-top-left-radius: 6px;
+             border-top-right-radius: 6px;
+             font-size: 11px;
+             font-weight: 500;
+         }
+
+         QTabBar::tab:selected {
+             background-color: white;
+             color: #374151;
+             border-bottom: 2px solid #3b82f6;
+         }
+
+         QTabBar::tab:hover {
+             background-color: #f1f5f9;
+             color: #374151;
+         }</string>
+        </property>
+        <property name="currentIndex">
+         <number>1</number>
+        </property>
+        <widget class="QWidget" name="tabImagePreview">
+         <attribute name="title">
+          <string>图像预览</string>
+         </attribute>
+         <layout class="QVBoxLayout" name="verticalLayout_preview">
+          <item>
+           <widget class="QScrollArea" name="imageScrollArea">
+            <property name="styleSheet">
+             <string>QScrollArea {
+                border: 2px dashed #d1d5db;
+                border-radius: 8px;
+                background-color: #f8fafc;
+            }
+
+            QScrollArea:hover {
+                border-color: #9ca3af;
+                background-color: #f1f5f9;
+            }</string>
+            </property>
+            <property name="widgetResizable">
+             <bool>true</bool>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+            <widget class="QWidget" name="imageScrollAreaContents">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>951</width>
+               <height>647</height>
+              </rect>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_imageContent">
+              <item>
+               <widget class="QLabel" name="lblImagePreview">
+                <property name="font">
+                 <font>
+                  <family>Microsoft YaHei</family>
+                  <pointsize>-1</pointsize>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string>QLabel {
+                    color: #9ca3af;
+                    font-size: 14px;
+                    font-weight: 400;
+                    padding: 40px;
+                }</string>
+                </property>
+                <property name="text">
+                 <string>📁 请选择要识别的文件
+或点击屏幕截图开始识别</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_navigation">
+            <item>
+             <widget class="QPushButton" name="btnPrevPage">
+              <property name="styleSheet">
+               <string>QPushButton {
+                   background-color: white;
+                   color: #6b7280;
+                   border: 1px solid #e5e7eb;
+                   border-radius: 6px;
+                   padding: 6px 12px;
+                   font-size: 10px;
+               }
+
+               QPushButton:hover {
+                   background-color: #f8fafc;
+                   border-color: #d1d5db;
+                   color: #374151;
+               }
+
+               QPushButton:pressed {
+                   background-color: #e5e7eb;
+               }
+
+               QPushButton:disabled {
+                   color: #d1d5db;
+                   background-color: #f9fafb;
+               }</string>
+              </property>
+              <property name="text">
+               <string>← 上一页</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_nav">
+              <property name="orientation">
+               <enum>Qt::Orientation::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QLabel" name="lblPageInfo">
+              <property name="styleSheet">
+               <string>QLabel {
+                   color: #6b7280;
+                   font-size: 10px;
+                   font-weight: 500;
+               }</string>
+              </property>
+              <property name="text">
+               <string>第 1 页 / 共 1 页</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_nav2">
+              <property name="orientation">
+               <enum>Qt::Orientation::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnNextPage">
+              <property name="styleSheet">
+               <string>QPushButton {
+                   background-color: white;
+                   color: #6b7280;
+                   border: 1px solid #e5e7eb;
+                   border-radius: 6px;
+                   padding: 6px 12px;
+                   font-size: 10px;
+               }
+
+               QPushButton:hover {
+                   background-color: #f8fafc;
+                   border-color: #d1d5db;
+                   color: #374151;
+               }
+
+               QPushButton:pressed {
+                   background-color: #e5e7eb;
+               }
+
+               QPushButton:disabled {
+                   color: #d1d5db;
+                   background-color: #f9fafb;
+               }</string>
+              </property>
+              <property name="text">
+               <string>下一页 →</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="tabOCRResult">
+         <attribute name="title">
+          <string>识别结果</string>
+         </attribute>
+         <layout class="QVBoxLayout" name="verticalLayout_result">
+          <item>
+           <widget class="QTextEdit" name="textEditResult">
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei</family>
+              <pointsize>-1</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string>QTextEdit {
+                 background-color: #fafafa;
+                 border: 1px solid #e5e7eb;
+                 border-radius: 6px;
+                 padding: 12px;
+                 font-size: 11px;
+                 line-height: 1.5;
+                 color: #374151;
+             }
+
+             QTextEdit:focus {
+                 border-color: #3b82f6;
+                 background-color: white;
+             }</string>
+            </property>
+            <property name="placeholderText">
+             <string>OCR识别结果将显示在这里...</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_resultButtons">
+            <item>
+             <widget class="QPushButton" name="btnCopyResult">
+              <property name="styleSheet">
+               <string>QPushButton {
+                   background-color: #3b82f6;
+                   color: white;
+                   border: none;
+                   border-radius: 6px;
+                   padding: 8px 16px;
+                   font-size: 10px;
+                   font-weight: 500;
+               }
+
+               QPushButton:hover {
+                   background-color: #2563eb;
+               }
+
+               QPushButton:pressed {
+                   background-color: #1d4ed8;
+               }
+
+               QPushButton:disabled {
+                   background-color: #d1d5db;
+                   color: #9ca3af;
+               }</string>
+              </property>
+              <property name="text">
+               <string>复制结果</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnSaveResult">
+              <property name="styleSheet">
+               <string>QPushButton {
+                   background-color: white;
+                   color: #374151;
+                   border: 1px solid #e5e7eb;
+                   border-radius: 6px;
+                   padding: 8px 16px;
+                   font-size: 10px;
+                   font-weight: 500;
+               }
+
+               QPushButton:hover {
+                   background-color: #f8fafc;
+                   border-color: #d1d5db;
+               }
+
+               QPushButton:pressed {
+                   background-color: #e5e7eb;
+               }
+
+               QPushButton:disabled {
+                   background-color: #f9fafb;
+                   color: #d1d5db;
+               }</string>
+              </property>
+              <property name="text">
+               <string>保存到文件</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnClearResult">
+              <property name="styleSheet">
+               <string>QPushButton {
+                   background-color: white;
+                   color: #ef4444;
+                   border: 1px solid #fecaca;
+                   border-radius: 6px;
+                   padding: 8px 16px;
+                   font-size: 10px;
+                   font-weight: 500;
+               }
+
+               QPushButton:hover {
+                   background-color: #fef2f2;
+                   border-color: #fca5a5;
+               }
+
+               QPushButton:pressed {
+                   background-color: #fee2e2;
+               }
+
+               QPushButton:disabled {
+                   background-color: #f9fafb;
+                   color: #d1d5db;
+                   border-color: #e5e7eb;
+               }</string>
+              </property>
+              <property name="text">
+               <string>清空结果</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_result">
+              <property name="orientation">
+               <enum>Qt::Orientation::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1200</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>文件(&amp;F)</string>
+    </property>
+    <addaction name="actionOpenFile"/>
+    <addaction name="actionSaveResult"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>编辑(&amp;E)</string>
+    </property>
+    <addaction name="actionCopyResult"/>
+    <addaction name="actionClearResult"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>帮助(&amp;H)</string>
+    </property>
+    <addaction name="actionAbout"/>
+    <addaction name="actionHelp"/>
+    <addaction name="separator"/>
+    <addaction name="actionLicense"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="font">
+    <font>
+     <pointsize>-1</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string>QStatusBar {
+        background-color: #f8fafc;
+        border-top: 1px solid #e2e8f0;
+        color: #6b7280;
+        font-size: 9px;
+    }
+
+    QStatusBar QLabel {
+        color: #6b7280;
+        padding: 2px 6px;
+    }</string>
+   </property>
+  </widget>
+  <action name="actionOpenFile">
+   <property name="text">
+    <string>打开文件(&amp;O)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionSaveResult">
+   <property name="text">
+    <string>保存结果(&amp;S)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>退出(&amp;X)</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+F4</string>
+   </property>
+  </action>
+  <action name="actionCopyResult">
+   <property name="text">
+    <string>复制结果(&amp;C)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+  </action>
+  <action name="actionClearResult">
+   <property name="text">
+    <string>清空结果(&amp;L)</string>
+   </property>
+  </action>
+  <action name="actionOCRSettings">
+   <property name="text">
+    <string>OCR设置(&amp;O)</string>
+   </property>
+  </action>
+  <action name="actionLanguageSettings">
+   <property name="text">
+    <string>语言设置(&amp;L)</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>关于(&amp;A)</string>
+   </property>
+  </action>
+  <action name="actionHelp">
+   <property name="text">
+    <string>使用帮助(&amp;H)</string>
+   </property>
+   <property name="shortcut">
+    <string>F1</string>
+   </property>
+  </action>
+  <action name="actionLicense">
+   <property name="text">
+    <string>开源协议(&amp;L)</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
