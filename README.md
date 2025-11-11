@@ -3,14 +3,6 @@
 一个基于Qt和C++17构建的智能光学字符识别(OCR)应用程序
 A smart optical character recognition (OCR) application built with Qt and C++17
 
-## 功能特性
-
-### 核心功能
-- **多格式支持**: PNG、JPG、BMP、TIFF、WebP、PDF文档
-- **多语言识别**: 中文(简体/繁体)、英语等多种语言
-- **导出功能**: 复制到剪贴板、保存为文本文件
-- **屏幕截图**: 内置屏幕捕获功能
-
 ## 系统要求
 
 ### 运行环境
