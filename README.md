@@ -42,11 +42,6 @@ mingw32-make
 mingw32-make clean  # Windows
 ```
 
-### 构建配置
-- **Debug版本**: 输出到 `build/debug/`
-- **Release版本**: 输出到 `build/release/`
-- **目标可执行文件**: `ConvenientOCRApplication.exe` (Windows) 
-
 ## 使用说明
 
 ### 基本操作流程
