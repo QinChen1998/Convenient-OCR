@@ -46,7 +46,6 @@ MainWindow::MainWindow(QWidget *parent)
     initOCREngine();
     connectSignalsAndSlots();
 
-    // 更新初始UI状态
     updateUIState(false);
 }
 
